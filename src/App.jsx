@@ -98,11 +98,12 @@ function App() {
                 Ver proyectos
               </button>
               <a
+                href={`${import.meta.env.BASE_URL}files/CV---Luis-Arturo-Alarcon-Blanco-.pdf`}
+                target="_blank"
+                rel="noreferrer"
                 className="btn btn-outline"
-                href="/files/CV---Luis-Arturo-Alarcon-Blanco-.pdf"
-                download
               >
-                Descargar CV
+                Ver CV
               </a>
             </div>
           </div>
@@ -265,7 +266,9 @@ function App() {
               </ul>
 
               <h3 style={{ marginTop: 14 }}>Ubicación</h3>
-              <p className="muted">Querétaro y Ciudad de México · Presencial / Remoto / Híbrido</p>
+              <p className="muted">
+                Querétaro y Ciudad de México · Presencial / Remoto / Híbrido
+              </p>
             </div>
           </div>
         </section>
