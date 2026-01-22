@@ -207,13 +207,6 @@ function App() {
           <div id="skills">
             <h2>Habilidades</h2>
             <TechStack items={techStack} />
-
-            {/* <div className="skill-bars">
-              <SkillBar label="Frontend" value={90} />
-              <SkillBar label="Backend" value={85} />
-              <SkillBar label="Bases de datos" value={90} />
-              <SkillBar label="DevOps" value={80} />
-            </div> */}
           </div>
         </section>
 
