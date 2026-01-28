@@ -2,6 +2,18 @@ import agendaImg from "../../src/assets/projects/saas.webp";
 
 export const projects = [
   {
+    id: "wedding-spa",
+    image: agendaImg,
+    title: "Invitación Digital de Boda (Vue SPA + Core Web Vitals)",
+    description:
+      "SPA de invitación digital de boda desarrollada en Vue (Vite), con secciones informativas y diseño responsive. Optimicé el rendimiento enfocándome en Core Web Vitals: imagen hero en AVIF con fallback, preload/fetchpriority para mejorar LCP, y reducción de CLS mediante dimensiones definidas y layout estable.",
+    tags: ["Vue", "Vite", "Core Web Vitals"],
+    type: "Frontend",
+    linkText: "Acceso restringido (requiere credenciales)",
+    linkUrl: "https://maderasconecta.gphsis.com/",
+    isPrivate: true,
+  },
+  {
     id: "agenda-saas",
     image: agendaImg,
     title: "Plataforma de Agendamiento y Gestión de Citas (SaaS)",
@@ -10,7 +22,7 @@ export const projects = [
     tags: ["React", "Vite", "Material UI", "SQL"],
     type: "Fullstack",
     linkText: "Acceso restringido (requiere credenciales)",
-    linkUrl: 'https://maderasconecta.gphsis.com/',
+    linkUrl: "https://maderasconecta.gphsis.com/",
     isPrivate: true,
   },
   {
@@ -46,7 +58,7 @@ export const projects = [
     tags: ["Node.js", "Express", "PWA", "SQL"],
     type: "Fullstack",
     linkText: "Abrir plataforma (acceso restringido)",
-    linkUrl: 'https://viget.sspmqro.gob.mx/',
+    linkUrl: "https://viget.sspmqro.gob.mx/",
     isPrivate: true,
   },
   {
@@ -63,8 +75,8 @@ export const projects = [
     ],
     tags: ["Laravel", "Vue", "Docker", "Jitsi Meet", "SQL", "Node.js"],
     type: "Fullstack",
-   linkText: "Abrir plataforma (acceso restringido)",
-    linkUrl: 'https://911.sspmqro.gob.mx/',
+    linkText: "Abrir plataforma (acceso restringido)",
+    linkUrl: "https://911.sspmqro.gob.mx/",
     isPrivate: true,
   },
   {
@@ -77,7 +89,7 @@ export const projects = [
     type: "Frontend",
     linkText: "Ver sitio (No desplegada por el momento)",
     // linkUrl: 'https://gph.mx/',
-    linkUrl: '',
+    linkUrl: "",
     isPrivate: true,
   },
   {
@@ -89,7 +101,7 @@ export const projects = [
     tags: ["HTML", "CSS", "JavaScript", "Landing Page"],
     type: "Frontend",
     linkText: "Ver sitio",
-    linkUrl: 'https://www.memorialmaderas.com.mx/',
+    linkUrl: "https://www.memorialmaderas.com.mx/",
     isPrivate: true,
   },
 
@@ -194,7 +206,7 @@ export const projects = [
     tags: ["Backend", "REST API", "SQL", "Estadísticas"],
     type: "Backend",
     linkText: "Ver sitio",
-    linkUrl: 'https://sspmqueretaro.com/programas/cuelgapp/',
+    linkUrl: "https://sspmqueretaro.com/programas/cuelgapp/",
     isPrivate: true,
   },
 ];

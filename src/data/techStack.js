@@ -15,6 +15,7 @@ import {
   SiNextdotjs,
   SiAngular,
   SiLaravel,
+  SiNuxtdotjs,
 
   // Mobile
   SiReact as SiReactNative, // reutilizamos React icon para React Native
@@ -75,6 +76,7 @@ export const techStack = [
   { name: "Vue.js", Icon: SiVuedotjs },
   { name: "Vite", Icon: SiVite },
   { name: "Next.js", Icon: SiNextdotjs },
+  { name: "Nuxt.js", Icon: SiNuxtdotjs },
   { name: "Angular", Icon: SiAngular },
 
   // Mobile
