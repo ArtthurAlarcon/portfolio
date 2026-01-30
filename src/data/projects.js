@@ -4,7 +4,7 @@ export const projects = [
   {
     id: "wedding-spa",
     image: agendaImg,
-    title: "Invitación Digital de Boda (Vue SPA + Core Web Vitals)",
+    title: "Invitación Digital de Boda (SPA)",
     description:
       "SPA de invitación digital de boda desarrollada en Vue (Vite), con secciones informativas y diseño responsive. Optimicé el rendimiento enfocándome en Core Web Vitals: imagen hero en AVIF con fallback, preload/fetchpriority para mejorar LCP, y reducción de CLS mediante dimensiones definidas y layout estable.",
     tags: ["Vue", "Vite", "Core Web Vitals"],
@@ -42,6 +42,18 @@ export const projects = [
     linkText: "Acceso restringido (requiere credenciales)",
     linkUrl: "https://maderascrm.gphsis.com/",
     isPrivate: true,
+  },
+  {
+    id: "pymes-landing-pages",
+    image: agendaImg,
+    title: "Landing Pages para PyMEs",
+    description:
+      "Desarrollo de landing pages para pequeños y medianos negocios en donde se visualizan secciones típicas como sus servicios, galería, testimonios, precios, paquetes, preguntas frecuentes y formulario de contacto.",
+    tags: ["Vue", "Vite", "UI/UX", "Performance"],
+    type: "Frontend",
+    linkText: "Demo",
+    // linkUrl: "https://TU-DEMO-AQUI.com/",
+    isPrivate: false,
   },
   {
     id: "pwa-control-operativo-seguridad",
