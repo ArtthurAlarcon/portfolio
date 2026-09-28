@@ -3,7 +3,7 @@ export const experience = [
     id: "ciudad-maderas",
     company: "Ciudad Maderas",
     role: "Full-Stack Developer",
-    date: "Octubre 2023 — Presente",
+    date: "Octubre 2023 — Octubre 2026",
     location: "Querétaro, México",
     modality: "Presencial",
     bullets: [
