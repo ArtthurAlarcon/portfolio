@@ -1,12 +1,15 @@
 import { experience } from '../data/experience'
+import { useLanguage } from '../i18n/LanguageContext'
 
 export default function ExperienceSection() {
+  const { lang, t } = useLanguage()
+
   return (
     <section id="experience" className="section">
-      <h2>Experiencia</h2>
+      <h2>{t.experience.title}</h2>
 
       <div className="card-grid exp-grid">
-        {experience.map(item => (
+        {experience[lang].map(item => (
           <article key={item.id} className="card">
             <div className="card-body">
               <h3>{item.company} · {item.role}</h3>

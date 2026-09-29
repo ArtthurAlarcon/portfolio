@@ -143,6 +143,18 @@ body {
   transform: translateY(-1px);
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.lang-toggle {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
 /* ===== Secciones ===== */
 
 .section h3 {

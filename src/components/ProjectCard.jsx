@@ -1,21 +1,29 @@
+import { useLanguage, localize } from "../i18n/LanguageContext";
+
 export default function ProjectCard({ project }) {
+  const { lang } = useLanguage();
+  const title = localize(project.title, lang);
+
   return (
     <article className="card project-card">
       {/* <div className="project-thumb">
-        <img src={project.image} alt={project.title} />
+        <img src={project.image} alt={title} />
       </div> */}
       {/* <div className="project-thumb"/> */}
 
       <div className="card-body">
-        <h3>{project.title}</h3>
-        <p>{project.description}</p>
+        <h3>{title}</h3>
+        <p>{localize(project.description, lang)}</p>
 
         <div className="tag-row">
-          {project.tags.map((tag) => (
-            <span key={tag} className="tag">
-              {tag}
-            </span>
-          ))}
+          {project.tags.map((tag) => {
+            const label = localize(tag, lang);
+            return (
+              <span key={label} className="tag">
+                {label}
+              </span>
+            );
+          })}
         </div>
 
         {/* <div className="card-actions">
@@ -26,10 +34,10 @@ export default function ProjectCard({ project }) {
               target="_blank"
               rel="noreferrer"
             >
-              {project.linkText || "Ver proyecto"}
+              {localize(project.linkText, lang) || "Ver proyecto"}
             </a>
           ) : (
-            <span className="muted">{project.linkText}</span>
+            <span className="muted">{localize(project.linkText, lang)}</span>
           )}
         </div> */}
       </div>

@@ -7,19 +7,14 @@ import { techStack } from "../src/data/techStack";
 import ProjectCard from "../src/components/ProjectCard";
 import { projects as PROJECTS } from "../src/data/projects";
 import ExperienceSection from "../src/sections/ExperienceSection";
+import { useLanguage } from "./i18n/LanguageContext";
 
-const SECTIONS = [
-  { id: "home", label: "Inicio" },
-  { id: "projects", label: "Proyectos" },
-  { id: "about", label: "Sobre mí" },
-  { id: "skills", label: "Skills" },
-  { id: "experience", label: "Experiencia" },
-  { id: "contact", label: "Contacto" },
-];
+const SECTIONS = ["home", "projects", "about", "skills", "experience", "contact"];
 
 const FILTERS = ["All", "Fullstack", "Frontend", "Backend"];
 
 function App() {
+  const { t, toggleLang } = useLanguage();
   const [theme, setTheme] = useState(
     () => localStorage.getItem("theme") || "dark",
   );
@@ -60,50 +55,59 @@ function App() {
         </div>
 
         <nav className="nav">
-          {SECTIONS.map((s) => (
+          {SECTIONS.map((id) => (
             <button
-              key={s.id}
+              key={id}
               className="nav-link"
-              onClick={() => scrollToSection(s.id)}
+              onClick={() => scrollToSection(id)}
             >
-              {s.label}
+              {t.nav[id]}
             </button>
           ))}
         </nav>
 
-        <button className="theme-toggle" onClick={toggleTheme}>
-          {theme === "dark" ? "☀️" : "🌙"}
-        </button>
+        <div className="header-actions">
+          <button
+            className="theme-toggle lang-toggle"
+            onClick={toggleLang}
+            aria-label={t.toggles.langAria}
+            title={t.toggles.langAria}
+          >
+            {t.toggles.lang}
+          </button>
+
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={t.toggles.themeAria}
+          >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+        </div>
       </header>
 
       <main>
         {/* HERO */}
         <section id="home" className="section hero">
           <div className="hero-text">
-            <p className="eyebrow">Full-Stack Developer</p>
-            <h1>Hola, soy Arturo Alarcón</h1>
-            <p className="hero-subtitle">
-              Desarrollador Full-Stack con 5 años de experiencia especializado
-              en aplicaciones web como CRM, ERP, SaaS y e-commerce. Me enfoco en
-              crear soluciones escalables, optimizadas y listas para producción,
-              cuidando tanto la experiencia del usuario como la lógica del
-              negocio.
-            </p>
+            <p className="eyebrow">{t.hero.eyebrow}</p>
+            <h1>{t.hero.title}</h1>
+            <p className="hero-subtitle">{t.hero.subtitle}</p>
 
             <div className="hero-actions">
               <button
                 className="btn btn-primary"
                 onClick={() => scrollToSection("projects")}
               >
-                Ver proyectos
+                {t.hero.projectsBtn}
               </button>
               <a
-                href={`${import.meta.env.BASE_URL}files/CV---Luis-Arturo-Alarcon-Blanco-.pdf`}
+                href={`${import.meta.env.BASE_URL}files/${t.hero.cvFile}`}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-outline"
               >
-                Ver CV
+                {t.hero.cvBtn}
               </a>
             </div>
           </div>
@@ -120,7 +124,7 @@ function App() {
         {/* PROYECTOS */}
         <section id="projects" className="section">
           <div className="section-header">
-            <h2>Proyectos Destacados</h2>
+            <h2>{t.projects.title}</h2>
 
             <div className="filters">
               {FILTERS.map((f) => (
@@ -129,7 +133,7 @@ function App() {
                   className={`chip ${filter === f ? "chip-active" : ""}`}
                   onClick={() => setFilter(f)}
                 >
-                  {f}
+                  {t.projects.filters[f]}
                 </button>
               ))}
             </div>
@@ -145,68 +149,38 @@ function App() {
         {/* SOBRE MÍ + SKILLS */}
         <section id="about" className="section section-two-col">
           <div>
-            <h2>Sobre mí</h2>
-            <p>
-              Soy Desarrollador Full-Stack con 5 años de experiencia creando
-              aplicaciones web enfocadas en negocio como CRM, ERP, SaaS y
-              e-commerce. Me gusta construir productos completos, desde la
-              interfaz hasta la lógica de backend y la base de datos, cuidando
-              rendimiento, escalabilidad y buena experiencia de usuario.
-            </p>
-            <p>
-              Disfruto trabajar en proyectos donde se requiere análisis,
-              automatización de procesos y desarrollo de soluciones que
-              realmente mejoren la operación del día a día.
-            </p>
+            <h2>{t.about.title}</h2>
+            {t.about.paragraphs.map((p, idx) => (
+              <p key={idx}>{p}</p>
+            ))}
 
             <div className="about-extras">
               <div className="mini-card">
-                <h3>Idiomas</h3>
+                <h3>{t.about.languagesTitle}</h3>
                 <ul className="mini-list">
-                  <li>
-                    <strong>Español:</strong> Nativo
-                  </li>
-                  <li>
-                    <strong>Inglés:</strong> B2 (Intermedio alto)
-                  </li>
+                  {t.about.languages.map((l) => (
+                    <li key={l.label}>
+                      <strong>{l.label}:</strong> {l.level}
+                    </li>
+                  ))}
                 </ul>
               </div>
 
               <div className="mini-card">
-                <h3>Habilidades blandas</h3>
+                <h3>{t.about.softSkillsTitle}</h3>
                 <div className="pill-row">
-                  <span className="pill">Comunicación efectiva</span>
-                  <span className="pill">Trabajo en equipo y colaboración</span>
-                  <span className="pill">Iniciativa y proactividad</span>
-                  <span className="pill">
-                    Resolución de problemas complejos
-                  </span>
-                  <span className="pill">
-                    Adaptabilidad a entornos cambiantes
-                  </span>
-                  <span className="pill">Pensamiento crítico y analítico</span>
-                  <span className="pill">
-                    Gestión del tiempo y priorización
-                  </span>
-                  <span className="pill">
-                    Orientación a resultados medibles
-                  </span>
-                  <span className="pill">
-                    Aprendizaje continuo y curiosidad
-                  </span>
-                  <span className="pill">Atención al detalle y precisión</span>
-                  <span className="pill">Empatía en entornos técnicos</span>
-                  <span className="pill">
-                    Organización y planificación estratégica
-                  </span>
-                  <span className="pill">Autonomía y autogestión</span>
+                  {t.about.softSkills.map((skill) => (
+                    <span key={skill} className="pill">
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
 
           <div id="skills">
-            <h2>Habilidades</h2>
+            <h2>{t.skills.title}</h2>
             <TechStack items={techStack} />
           </div>
         </section>
@@ -218,12 +192,8 @@ function App() {
         <section id="contact" className="section section-contact">
           <div className="contact-grid">
             <div className="contact-card">
-              <h2>¿Construimos algo juntos?</h2>
-              <p>
-                Estoy abierto a nuevas oportunidades y proyectos. Si buscas
-                apoyo en desarrollo Full-Stack (CRM, ERP, SaaS, e-commerce o
-                APIs), mándame mensaje y lo platicamos.
-              </p>
+              <h2>{t.contact.title}</h2>
+              <p>{t.contact.text}</p>
 
               <div className="contact-links">
                 <a
@@ -234,7 +204,7 @@ function App() {
                     openEmail();
                   }}
                 >
-                  Contactar por email
+                  {t.contact.email}
                 </a>
 
                 <a
@@ -258,17 +228,15 @@ function App() {
             </div>
 
             <div className="contact-card">
-              <h2>Disponible para</h2>
+              <h2>{t.contact.availableTitle}</h2>
               <ul className="mini-list">
-                <li>Oportunidades Full-Stack/Frontend/Backend</li>
-                <li>Freelance por proyecto</li>
-                <li>Consultas, mentorias</li>
+                {t.contact.available.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
 
-              <h3 style={{ marginTop: 14 }}>Ubicación</h3>
-              <p className="muted">
-                Querétaro y Ciudad de México · Presencial / Remoto / Híbrido
-              </p>
+              <h3 style={{ marginTop: 14 }}>{t.contact.locationTitle}</h3>
+              <p className="muted">{t.contact.location}</p>
             </div>
           </div>
         </section>
@@ -276,7 +244,7 @@ function App() {
 
       <footer className="footer">
         <span>© {new Date().getFullYear()} Arturo Alarcón</span>
-        <span>Hecho con React + Vite</span>
+        <span>{t.footer.madeWith}</span>
       </footer>
     </div>
   );
