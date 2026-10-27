@@ -3,6 +3,23 @@ import agendaImg from "../../src/assets/projects/saas.webp";
 // Los campos de texto usan { es, en } y se resuelven con localize()
 export const projects = [
   {
+    id: "appointly",
+    image: agendaImg,
+    title: {
+      es: "Appointly · SaaS de Agendamiento de Citas",
+      en: "Appointly · Appointment Scheduling SaaS",
+    },
+    description: {
+      es: "SaaS propio de agendamiento y gestión de citas que estoy desarrollando de forma independiente.",
+      en: "My own appointment scheduling and management SaaS, which I'm building independently.",
+    },
+    tags: ["Astro", "Next.js", "NestJS", { es: "IA", en: "AI" }],
+    type: "Fullstack",
+    isOwn: true,
+    status: "inProgress",
+    isPrivate: false,
+  },
+  {
     id: "wedding-spa",
     image: agendaImg,
     title: {

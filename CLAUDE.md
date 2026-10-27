@@ -13,18 +13,20 @@ Portfolio personal de Luis Arturo Alarcón Blanco (Ingeniero de Software | Desar
 
 ```
 src/
-  App.jsx                  Layout y secciones (header, hero, proyectos, about, contacto)
+  App.jsx                  Layout: fondo decorativo, header, secciones y footer
   main.jsx                 Monta <App /> dentro de <LanguageProvider>
-  index.css                Estilos globales y variables de tema
+  index.css                Estilos globales, variables de tema y animaciones
   i18n/
     LanguageContext.jsx    Provider, hook useLanguage() y helper localize()
     translations.js        Textos de la interfaz { es, en }
   data/
     experience.js          Experiencia laboral { es: [...], en: [...] }
     projects.js            Proyectos (campos de texto como { es, en })
-    techStack.js           Tecnologías e íconos (sin traducción)
-  components/              Componentes reutilizables (ProjectCard, TechStack)
-  sections/                Secciones grandes (ExperienceSection)
+    techStack.js           Tecnologías, categoría y color de marca (sin traducción)
+  hooks/                   useInView (scroll reveal), useScrollSpy, useTheme
+  utils/                   pointer.js (spotlight/inclinación), experience.js (duración, iniciales)
+  components/              Header, Reveal, SectionHeading, Counter, ProjectCard, ProjectModal, TechStack
+  sections/                Hero, Projects, About, Skills, Experience (línea del tiempo), Contact
 public/files/              CVs en PDF (ES y EN)
 ```
 
@@ -52,7 +54,8 @@ public/files/              CVs en PDF (ES y EN)
 
 ### 3. Código reutilizable
 
-- Antes de crear algo nuevo, busca si ya existe. Reutiliza las clases `card`, `chip`, `pill`, `tag`, `btn`, `mini-card`, `link-btn` y los componentes de `components/`.
+- Antes de crear algo nuevo, busca si ya existe. Reutiliza las clases `card`, `spotlight`, `chip`, `pill`, `tag`, `btn`, `mini-card`, `link-btn`, `check-list` y los componentes de `components/`.
+- Las animaciones de entrada usan `<Reveal>` (o `useInView`). Respeta `prefers-reduced-motion`: ya hay un bloque global al final de `index.css`.
 - El contenido (proyectos, experiencia, skills) vive en `src/data/` y se renderiza con `.map()`; no repitas bloques de JSX.
 - Si una sección crece, extráela a `src/sections/`. Las piezas pequeñas que se repiten van a `src/components/`.
 - Mantén el estilo existente: componentes funcionales, hooks y nombres descriptivos.
